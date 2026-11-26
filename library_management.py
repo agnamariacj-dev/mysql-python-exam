@@ -21,6 +21,8 @@ class library_management:
             print("Book added successfully")
         except:
             print("Failed to Add book")
+        finally:
+            cursor.close()
     def read(self):
         try:
             cursor=self.con.cursor()
@@ -34,6 +36,10 @@ class library_management:
                 print("No books available")
         except:
             print("Failed to read books")
+
+        finally:
+            cursor.close()
+
     def retrieve(self,book_id):
         try:
             cursor=self.con.cursor()
@@ -47,6 +53,8 @@ class library_management:
                 print("No book found with ID",book_id)
         except:
             print("Failed to retrieve book")
+        finally:
+            cursor.close()
     def update(self,book_id,available_copies):
         try:
             cursor=self.con.cursor()
@@ -60,6 +68,8 @@ class library_management:
                 print("No book found with id:",book_id,"to update")
         except:
             print("Failed to update")
+        finally:
+            cursor.close()
     def delete(self,book_id):
         try:
             cursor=self.con.cursor()
@@ -73,6 +83,9 @@ class library_management:
                 print("No book found with id:",book_id,"to delete")
         except:
             print("Failed to delete")
+        finally:
+            cursor.close()
+
     def summary(self):
         try:
             cursor=self.con.cursor()
@@ -87,6 +100,8 @@ class library_management:
                 print("No records found")
         except:
             print("Summary Not available")
+        finally:
+            cursor.close()
 l=library_management()
 while(True):
     print("LIBRARY MANAGEMENT")
